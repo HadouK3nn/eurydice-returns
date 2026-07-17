@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eurydice Returns — Fervent, Fertile and Free</title>
+<meta name="description" content="A ten-week journey — a four-day descent in the Rhodope Mountains and nine weeks of gestation — for women who have been to the underworld and are ready to return on their own terms.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:      #0E0D0A;
+    --paper:    #F2EDE1;
+    --paper-dim:#E4DCC8;
+    --oxblood:  #7A2118;
+    --rust:     #B34A2A;
+    --rust-bright:#D0603A;
+    --stone:    #8C8574;
+    --stone-dark:#5C564A;
+    --measure: 62ch;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    font-family:'Newsreader', Georgia, serif;
+    font-size:1.12rem;
+    line-height:1.7;
+    background:var(--paper);
+    color:var(--ink);
+  }
+  ::selection{background:var(--oxblood);color:var(--paper)}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.05;letter-spacing:-.01em}
+
+  /* ——— Sections: hard cuts, no gradients ——— */
+  section, header.hero{padding:6rem 1.5rem 5.5rem;position:relative}
+  @media(max-width:640px){section, header.hero{padding:4rem 1.25rem 4rem}}
+  .on-paper{background:var(--paper);color:var(--ink)}
+  .on-ink{background:var(--ink);color:var(--paper)}
+  .inner{max-width:var(--measure);margin:0 auto}
+  .inner p+p{margin-top:1.3rem}
+
+  /* thick hard rule between every section — no fade */
+  section+section, header.hero+section{border-top:3px solid var(--ink)}
+  .on-ink + .on-ink{border-top-color:var(--paper)}
+
+  /* ——— Threshold header: roman numeral + arch + title ——— */
+  .threshold{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:3rem}
+  .threshold .arch{width:64px;height:auto;margin-bottom:1.2rem;color:var(--oxblood)}
+  .on-ink .threshold .arch{color:var(--rust)}
+  .threshold .numeral{font-family:'Space Mono',monospace;font-size:.75rem;letter-spacing:.32em;text-transform:uppercase;color:var(--oxblood);margin-bottom:.6rem}
+  .on-ink .threshold .numeral{color:var(--rust-bright)}
+  .threshold h2{font-size:clamp(1.6rem,4vw,2.35rem);max-width:22ch}
+  .threshold .opsz-tight{font-optical-sizing:auto}
+
+  /* ——— Hero ——— */
+  header.hero{
+    min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;background:var(--ink);color:var(--paper);
+  }
+  .hero .where{font-family:'Space Mono',monospace;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--stone);margin-bottom:2.6rem}
+  .hero .arch-big{width:120px;height:auto;color:var(--rust);margin-bottom:2rem}
+  .hero h1{font-size:clamp(3rem,10vw,6.2rem);letter-spacing:-.015em}
+  .hero .subtitle{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(1.1rem,2.6vw,1.4rem);color:var(--stone);margin-top:1.4rem}
+  .hero .three-words{font-family:'Space Mono',monospace;font-size:clamp(.78rem,2vw,1rem);letter-spacing:.38em;text-transform:uppercase;color:var(--rust-bright);margin-top:2.4rem}
+  .hero .subline{font-weight:300;color:var(--paper-dim);max-width:48ch;margin:2.4rem auto 0;font-size:1.02rem;line-height:1.75}
+  .hero .cta-row{margin-top:2.8rem}
+
+  .btn{
+    display:inline-block;font-family:'Space Mono',monospace;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;
+    padding:1rem 2.2rem;border:2px solid currentColor;text-decoration:none;color:inherit;background:transparent;
+    transition:background .25s ease,color .25s ease;
+  }
+  .btn:hover{background:var(--rust);color:var(--paper);border-color:var(--rust)}
+  .on-paper .btn:hover{background:var(--oxblood);color:var(--paper);border-color:var(--oxblood)}
+  .btn:focus-visible{outline:2px solid var(--rust);outline-offset:4px}
+  .btn.solid{background:var(--rust);color:var(--paper);border-color:var(--rust)}
+  .btn.solid:hover{background:var(--paper);color:var(--rust)}
+  .on-paper .btn.solid{background:var(--oxblood);color:var(--paper);border-color:var(--oxblood)}
+  .on-paper .btn.solid:hover{background:var(--paper);color:var(--oxblood)}
+
+  .down-cue{
+    position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);color:var(--stone);
+    width:2.75rem;height:2.75rem;display:inline-flex;align-items:center;justify-content:center;
+    border:1px solid var(--stone);border-radius:0;text-decoration:none;font-size:1.1rem;transition:color .25s,border-color .25s;
+  }
+  .down-cue:hover{color:var(--rust);border-color:var(--rust)}
+
+  /* ——— reveal ——— */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none}}
+  .no-js .reveal{opacity:1;transform:none}
+
+  /* ——— pull lines: marginalia style ——— */
+  .pull{
+    font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:clamp(1.25rem,3vw,1.55rem);line-height:1.5;
+    margin:2.2rem 0;padding:1.4rem 1.6rem;border-left:3px solid var(--oxblood);background:var(--paper-dim);
+  }
+  .on-ink .pull{border-left-color:var(--rust);background:#1C1A15}
+
+  /* ——— creed lists ——— */
+  .creed{list-style:none;margin-top:1.3rem}
+  .creed li{padding-left:1.7rem;position:relative;margin-top:1.1rem}
+  .creed li::before{content:'—';position:absolute;left:0;color:var(--oxblood);font-family:'Space Mono',monospace}
+  .on-ink .creed li::before{color:var(--rust)}
+
+  /* ——— three doors: container phases & pricing tiers share this component ——— */
+  .doors{display:grid;gap:1.4rem;margin-top:2.4rem}
+  @media(min-width:760px){.doors{grid-template-columns:1fr 1fr 1fr}}
+  .door{border:2px solid var(--ink);padding:0;display:flex;flex-direction:column}
+  .on-ink .door{border-color:var(--paper)}
+  .door .door-top{padding:1.6rem 1.4rem 0;display:flex;justify-content:center}
+  .door .door-top svg{width:44px;height:auto;color:var(--oxblood)}
+  .on-ink .door .door-top svg{color:var(--rust)}
+  .door .door-body{padding:1.2rem 1.5rem 1.8rem;text-align:center;display:flex;flex-direction:column;flex-grow:1}
+  .door .numeral{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.2em;color:var(--oxblood);margin-bottom:.5rem}
+  .on-ink .door .numeral{color:var(--rust-bright)}
+  .door h3{font-size:1.05rem;letter-spacing:.04em;margin-bottom:.5rem}
+  .door .when{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);display:block;margin-bottom:.8rem}
+  .on-paper .door .when{color:var(--stone-dark)}
+  .door p.desc{font-size:.98rem;font-weight:300;flex-grow:1}
+
+  /* pricing door variant */
+  .door.tier{background:var(--paper)}
+  .door.tier.full{border-width:3px;border-color:var(--oxblood)}
+  .on-ink .door.tier{background:#17150F}
+  .on-ink .door.tier.full{border-color:var(--rust)}
+  .door.tier .flag{font-family:'Space Mono',monospace;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;background:var(--oxblood);color:var(--paper);padding:.4rem;text-align:center}
+  .on-ink .door.tier .flag{background:var(--rust)}
+  .door.tier .price{font-family:'Fraunces',serif;font-size:1.9rem;font-weight:600;margin-top:.8rem}
+  .door.tier .tier-sub{font-style:italic;font-weight:300;font-size:.92rem;color:var(--stone);min-height:2.8em;margin-top:.3rem}
+
+  /* ——— facts strip ——— */
+  .facts{display:flex;flex-wrap:wrap;gap:2.2rem 3.5rem;justify-content:center;text-align:center;margin-top:2.8rem;padding-top:2.4rem;border-top:1px solid var(--stone)}
+  .facts .n{font-family:'Fraunces',serif;font-weight:600;font-size:1.35rem;display:block;color:var(--oxblood)}
+  .on-ink .facts .n{color:var(--rust)}
+  .facts .l{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+  .on-paper .facts .l{color:var(--stone-dark)}
+
+  /* ——— media niches (placeholder frames) ——— */
+  .niche{border:1px solid currentColor;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;padding:2.2rem 1.4rem;margin:2.6rem auto;text-align:center;color:var(--stone)}
+  .niche::before,.niche::after{content:'';position:absolute;width:14px;height:14px;border:1px solid currentColor}
+  .niche::before{top:-1px;left:-1px;border-right:none;border-bottom:none}
+  .niche::after{bottom:-1px;right:-1px;border-left:none;border-top:none}
+  .niche.ratio-16-9{aspect-ratio:16/9;max-width:520px}
+  .niche.ratio-portrait{aspect-ratio:3/4;max-width:220px}
+  .niche.ratio-wide{aspect-ratio:21/9;max-width:640px}
+  .niche svg{width:30px;height:auto}
+  .niche .n-label{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+  .on-ink .niche .n-label{color:var(--paper)}
+  .niche .n-desc{font-family:'Newsreader',serif;font-style:italic;font-weight:300;font-size:.88rem;max-width:30ch;color:var(--ink)}
+  .on-ink .niche .n-desc{color:var(--paper-dim)}
+  .niche .n-spec{font-family:'Space Mono',monospace;font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--stone)}
+  .on-paper .niche .n-spec{color:var(--stone-dark)}
+
+  /* ——— two column for/not-for ——— */
+  .two-col{display:grid;gap:2.6rem;margin-top:2.2rem}
+  @media(min-width:760px){.two-col{grid-template-columns:1fr 1fr}}
+  .two-col h3{font-family:'Space Mono',monospace;font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1.1rem}
+
+  .close{text-align:center;padding-bottom:6.5rem}
+  .close .final-line{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(1.6rem,4vw,2.2rem);margin:2.6rem 0 2.2rem}
+  .close .sig{margin-top:3.2rem;font-size:.98rem}
+  .close .sig strong{font-family:'Fraunces',serif;font-weight:600;font-size:1.1rem;display:block;margin-bottom:.25rem}
+  .close .sig span{font-style:italic;font-weight:300;color:var(--stone)}
+
+  footer{background:var(--ink);color:var(--stone);text-align:center;font-size:.78rem;font-family:'Space Mono',monospace;letter-spacing:.06em;padding:2.2rem 1.5rem}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HERO ═══════════ -->
+<header class="hero">
+  <p class="where">Rhodope Mountains, Bulgaria · 1–4 October &amp; nine weeks beyond</p>
+  <svg class="arch-big" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+    <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4" stroke-linecap="square"/>
+    <path d="M22,138 L22,64 A38,38 0 0,1 98,64 L98,138" stroke="currentColor" stroke-width="2"/>
+    <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+  </svg>
+  <h1>Eurydice Returns</h1>
+  <p class="subtitle">To the underworld and back</p>
+  <p class="three-words">Fervent · Fertile · Free</p>
+  <p class="subline">A ten-week journey — a four-day descent in the Rhodope Mountains and nine weeks of gestation — for women who have been to the underworld and are ready to return on their own terms.</p>
+  <div class="cta-row"><a class="btn solid" href="#three-ways">Three ways in</a></div>
+  <a class="down-cue" href="#ache" aria-label="Begin reading">↓</a>
+</header>
+
+<!-- ═══════════ I. THE ACHE ═══════════ -->
+<section id="ache" class="on-paper">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold I</span>
+      <h2>The Ache</h2>
+    </div>
+    <p>You did not choose the underworld.</p>
+    <p>A serpent took Eurydice while she was walking through the grass — she did not step down into the dark, she was pulled. And so were you: by migration that unhoused you from the language of your own feeling, by a betrayal that broke something you thought was solid, by illness that ended the version of yourself you had been managing, by the long, uncounted labour of holding everyone else whole while no one held you.</p>
+    <p>You have been down there for a while now. Functioning. Holding the walls. And underneath the competence, a quiet knowledge that no one is coming to lead you back — no Orpheus, no rescue, no one whose love will turn and carry you up into the light.</p>
+    <p class="pull">What you long for, and rarely say: to return on your own terms. To come back not repaired, not smaller, not grateful to have survived — but fervent, fertile, and free.</p>
+  </div>
+</section>
+
+<!-- ═══════════ II. THE STORY ═══════════ -->
+<section class="on-ink">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold II</span>
+      <h2>The Story That Invites You In</h2>
+    </div>
+    <p>You did what you have always done with it: you managed. You called it growth, and some of it was. But you have been waiting, a little, without admitting it — for someone else's love to turn and carry you back into the light.</p>
+    <div class="niche ratio-16-9">
+      <svg viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="44" height="32"/><path d="M20,12 L32,18 L20,24 Z" fill="currentColor" stroke="none"/></svg>
+      <span class="n-label">Explainer</span>
+      <p class="n-desc">Irina, in her own voice, retelling the myth and naming the pivot.</p>
+      <span class="n-spec">16:9 · 60–90 sec</span>
+    </div>
+    <p>Eurydice did not choose the dark either. The old story says she needed Orpheus to walk ahead and not look back, and he looked back, and she was lost. This is the other story. The one where no one's leadership can return her — where she has to lead herself. And she does.</p>
+  </div>
+</section>
+
+<!-- ═══════════ III. THE WORLD BEYOND THE THRESHOLD ═══════════ -->
+<section class="on-paper">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold III</span>
+      <h2>The World Beyond the Threshold</h2>
+    </div>
+    <p>We are in the Rhodope Mountains — a range that does not obey borders, that carries Bulgarian and Greek and Turkish and Pomak in one body of stone, the way you carry your own languages. My father's land. The air is resined and cold in the mornings. There is a cave the shape of the body that makes life, and we go into it not to hide but to conceive.</p>
+    <div class="niche ratio-16-9">
+      <svg viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="44" height="32"/><path d="M20,12 L32,18 L20,24 Z" fill="currentColor" stroke="none"/></svg>
+      <span class="n-label">Location</span>
+      <p class="n-desc">The actual cave mouth, the mountain light at dawn.</p>
+      <span class="n-spec">16:9 · photo or short loop</span>
+    </div>
+    <p>On the other side, a woman walks up out of the dark alone. No lyre leading her. No man ahead of her turning to check she is still there. Just her, ascending, in her own time.</p>
+    <p class="pull">You can hear her own heart under the drums. You can taste salt — tears and laughter, the same water. She is not fixed. She is fervent.</p>
+  </div>
+</section>
+
+<!-- ═══════════ IV. WHO THIS IS FOR — AND WHO I AM ═══════════ -->
+<section class="on-paper" style="border-top-style:solid">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold IV</span>
+      <h2>Who This Is For — and Who I Am</h2>
+    </div>
+    <div class="niche ratio-portrait">
+      <svg viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="44" height="32"/><circle cx="14" cy="12" r="3"/><path d="M6,30 L18,18 L26,26 L34,14 L44,26"/></svg>
+      <span class="n-label">Portrait</span>
+      <p class="n-desc">Irina — unposed, natural light.</p>
+      <span class="n-spec">3:4</span>
+    </div>
+    <p>I am someone who…</p>
+    <ul class="creed">
+      <li>…cares about the people who live and love not where they were born — the intercultural, the multilingual, the ones whole in more than one tongue and at home in the space between.</li>
+      <li>…is drawn to myth as the truest map we have for what happens inside a life, and to the body as the place that knows before language arrives.</li>
+      <li>…believes deeply that we do not learn to relate to ourselves first and then to others — that self and other grow together, in relation, all the way through; and that connection is not the absence of rupture but the literacy to reconnect after it.</li>
+      <li>…is building a world where relationship itself is the curriculum, where a woman's descent is not a story of damage to be healed but a passage she can lead herself back from, and where depth and abundance belong in the same sentence.</li>
+    </ul>
+    <p style="margin-top:2rem">And I attract women who share this — who have been to their own underworlds, who are done being led, and who are ready to return on their own terms.</p>
+    <p>Women in the second half of life who carry more than one culture in the body and have been pulled into an underworld they did not choose. They are literate, travelled, often the ones others lean on. They are done performing recovery. They are not looking for a coach to fix them; they are looking for a threshold, a myth large enough to hold what happened to them, and the company of women who will witness them being born into what comes next.</p>
+  </div>
+</section>
+
+<!-- ═══════════ V. WHAT BECOMES POSSIBLE ═══════════ -->
+<section class="on-ink">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold V</span>
+      <h2>What Becomes Possible</h2>
+    </div>
+    <p>This is not about recovering from what happened to you.</p>
+    <p>This is about discovering that you are fertile beyond childbirth — that you can conceive, in the dark, a work and a self you have not been yet, carry it the nine weeks it takes, and deliver it in your own time and your own place.</p>
+    <p>It is about the moment you stop waiting to be led and feel your own feet on the path up. About being witnessed — not fixed, witnessed — by women who descended beside you. About returning to your own languages, your own body, your own hour.</p>
+    <p class="pull">Fervent, where you were flat. Fertile, where you thought you were finished. Free.</p>
+  </div>
+</section>
+
+<!-- ═══════════ VI. THE CONTAINER ═══════════ -->
+<section class="on-paper">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold VI</span>
+      <h2>The Container</h2>
+    </div>
+    <p style="text-align:center">Container, not curriculum. Three doors, walked through in order.</p>
+    <div class="doors">
+      <div class="door">
+        <div class="door-top"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M22,4 A16,16 0 1,0 22,36 A11,14 0 1,1 22,4 Z" fill="currentColor"/></svg></div>
+        <div class="door-body">
+          <span class="numeral">I</span>
+          <h3>The Descent</h3>
+          <span class="when">4 days · Rhodope Mountains · 1–4 Oct</span>
+          <p class="desc">Arrival and threshold, somatic and vocal work, a passage into the cave as the site of conception, and a solo ascent — she walks back up alone, held.</p>
+        </div>
+      </div>
+      <div class="door">
+        <div class="door-top"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><ellipse cx="20" cy="26" rx="8" ry="11" fill="currentColor"/><path d="M20,15 C18,8 22,4 27,2" stroke="currentColor" stroke-width="1.8"/></svg></div>
+        <div class="door-body">
+          <span class="numeral">II</span>
+          <h3>The Gestation</h3>
+          <span class="when">9 weeks · online</span>
+          <p class="desc">Three trimesters mirroring how life is actually made. Regular gatherings, somatic and voice practice, guidance held in the myth rather than delivered as steps.</p>
+        </div>
+      </div>
+      <div class="door">
+        <div class="door-top"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M6,26 A14,14 0 0,1 34,26" stroke="currentColor" stroke-width="2"/><line x1="2" y1="26" x2="38" y2="26" stroke="currentColor" stroke-width="1.5"/><path d="M20,5 L20,10 M9,12 L12,15 M31,12 L28,15" stroke="currentColor" stroke-width="1.5"/></svg></div>
+        <div class="door-body">
+          <span class="numeral">III</span>
+          <h3>The Birth</h3>
+          <span class="when">Her own time · her own place</span>
+          <p class="desc">Individual, at her own time and in her own place, held by the collective presence of the circle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="facts">
+      <div><span class="n">Three languages</span><span class="l">Bulgarian · Russian · English</span></div>
+      <div><span class="n">36 women</span><span class="l">Twelve in each language</span></div>
+      <div><span class="n">Ten weeks</span><span class="l">Descent · gestation · birth</span></div>
+    </div>
+    <p style="margin-top:2.6rem">Held in three languages — Bulgarian, Russian, English — so each woman can descend and return in the tongue her feeling actually speaks. Faculty: Dr Irina Aron, with voice and singing (Deni) and further facilitation to be named.</p>
+    <p>You do not need every detail resolved to enter. The container holds; the work shapes itself as we go.</p>
+  </div>
+</section>
+
+<!-- ═══════════ VII. THREE WAYS IN ═══════════ -->
+<section id="three-ways" class="on-ink">
+  <div class="inner reveal" style="max-width:66rem">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold VII</span>
+      <h2>Three Ways In</h2>
+    </div>
+    <p style="max-width:var(--measure);margin:0 auto;text-align:center">Three doors. Each complete in itself. The full arc — descent, gestation and birth — is the intended experience.</p>
+    <div class="niche ratio-wide">
+      <svg viewBox="0 0 48 36" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="2" y="2" width="44" height="32"/><circle cx="14" cy="12" r="3"/><path d="M6,30 L18,18 L26,26 L34,14 L44,26"/></svg>
+      <span class="n-label">Past Circle</span>
+      <p class="n-desc">Women together from a previous retreat — the proof the myth is real.</p>
+      <span class="n-spec">21:9 or 16:9</span>
+    </div>
+    <div class="doors">
+      <div class="door tier">
+        <div class="door-top"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8,36 L8,18 A12,12 0 0,1 32,18 L32,36" stroke="currentColor" stroke-width="2.5"/></svg></div>
+        <div class="door-body">
+          <h3>The Retreat</h3>
+          <p class="tier-sub">Eurydice Returns — four days in the Rhodope Mountains</p>
+          <p class="price">€2,000</p>
+          <p class="desc" style="margin-top:.8rem">The descent and the conception. Threshold work, the cave, the solo ascent.</p>
+        </div>
+      </div>
+      <div class="door tier full">
+        <div class="flag">The intended experience</div>
+        <div class="door-top"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8,36 L8,18 A12,12 0 0,1 32,18 L32,36" stroke="currentColor" stroke-width="2.5"/></svg></div>
+        <div class="door-body">
+          <h3>The Full Arc</h3>
+          <p class="tier-sub">Eurydice Returns: Fervent, Fertile and Free — retreat and programme together</p>
+          <p class="price">€3,000</p>
+          <p class="desc" style="margin-top:.8rem">Descent, return, conception, gestation, birth. The complete journey.</p>
+        </div>
+      </div>
+      <div class="door tier">
+        <div class="door-top"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M8,36 L8,18 A12,12 0 0,1 32,18 L32,36" stroke="currentColor" stroke-width="2.5"/></svg></div>
+        <div class="door-body">
+          <h3>The Programme</h3>
+          <p class="tier-sub">Fertile, Fervent and Free — nine weeks, online</p>
+          <p class="price">€1,000</p>
+          <p class="desc" style="margin-top:.8rem">For the woman who cannot travel to Bulgaria and is ready to carry what is asking to be born.</p>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2.4rem"><a class="btn solid" href="mailto:mail@irinaaron.com?subject=Eurydice%20Returns%20—%20application">Join the waitlist</a></p>
+    <p style="text-align:center;margin-top:1.2rem;font-family:'Space Mono',monospace;font-size:.78rem;letter-spacing:.05em;color:var(--stone)">Applications open July 2026. Entry is by application.</p>
+  </div>
+</section>
+
+<!-- ═══════════ VIII. FOR / NOT FOR ═══════════ -->
+<section class="on-paper">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold VIII</span>
+      <h2>Who This Is For — and Who It Is Not For</h2>
+    </div>
+    <div class="two-col">
+      <div>
+        <h3>This is for you if</h3>
+        <ul class="creed">
+          <li>You have been to an underworld you did not choose, and you are done calling survival a personality.</li>
+          <li>You live and love across more than one culture or language, and you have never found a room that holds all of you.</li>
+          <li>You sense a life trying to be born through you — a work, a self, a next chapter — and you cannot translate it alone.</li>
+          <li>You are ready to lead yourself back, and to be witnessed doing it.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>This is not for you if</h3>
+        <ul class="creed">
+          <li>You want to be rescued, fixed, or handed a healing arc with a tidy ending.</li>
+          <li>You want a fast method or a template, rather than a descent and a gestation that take the time they take.</li>
+          <li>You would rather stay underground, managing, than be seen returning.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ IX. THE AFTER-WORLD ═══════════ -->
+<section class="on-ink close">
+  <div class="inner reveal">
+    <div class="threshold">
+      <svg class="arch" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+        <path d="M8,138 L8,60 A52,52 0 0,1 112,60 L112,138" stroke="currentColor" stroke-width="4"/>
+        <line x1="8" y1="138" x2="112" y2="138" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <span class="numeral">Threshold IX</span>
+      <h2>The After-World</h2>
+    </div>
+    <p style="text-align:left">Imagine walking up out of the dark in your own time, with no one ahead of you to turn and lose you. The work you conceived is real now, delivered, breathing in the world. You move through your languages and your countries as one whole woman rather than several managed halves. What happened to you is behind you — not erased, integrated — the way ground holds the roots of what grows from it. You are fervent where you were flat. Fertile where you thought you were finished. Free.</p>
+    <p class="final-line">Come apart. Be held. Begin again.</p>
+    <a class="btn solid" href="mailto:mail@irinaaron.com?subject=Eurydice%20Returns%20—%20application">Join the waitlist</a>
+    <p style="margin-top:2.6rem;font-style:italic;color:var(--stone)">You know if this is for you.</p>
+    <div class="sig">
+      <strong>Dr Irina Aron</strong>
+      <span>Psychotherapist | Intercultural Relationship Consultant</span>
+    </div>
+  </div>
+</section>
+
+<footer>Eurydice Returns · Rhodope Mountains, Bulgaria · October 2026</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
